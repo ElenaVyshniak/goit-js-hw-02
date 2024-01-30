@@ -14,7 +14,15 @@
 // в іншому випадку функція має повертати рядок "You ordered <quantity> droids worth <totalPrice> credits!", де <quantity> це кількість замовлених дроїдів, а <totalPrice> це їх загальна вартість.
 
 function makeTransaction(quantity, pricePerDroid, customerCredits) {
-  const Transaction = quantity + pricePerDroid + customerCredits;
+  let totalPrice = quantity * pricePerDroid;
+
+  if (totalPrice > customerCredits) {
+    return 'Insufficient funds!';
+  } else {
+    return (
+      'You ordered ' + quantity + ' droids worth ' + totalPrice + ' credits!'
+    );
+  }
 }
 
 console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
