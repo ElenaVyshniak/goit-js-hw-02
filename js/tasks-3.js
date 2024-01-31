@@ -5,10 +5,10 @@
 // Якщо в рядку відсутні заборонені слова, функція повертає буль false
 
 function checkForSpam(message) {
-  // Регулярний вираз для пошуку заборонених слів "spam" та "sale"
-  const regex = /\b(spam|sale)\b/i;
-  // Перевірка, чи знайдено заборонене слово у повідомленні
-  return regex.test(message);
+  // Переведення рядка у нижній регістр для уніфікації порівняння
+  message = message.toLowerCase();
+  // Перевірка, чи містить рядок заборонені слова "spam" або "sale"
+  return message.includes('spam') || message.includes('sale');
 }
 
 console.log(checkForSpam('Latest technology news')); // false
